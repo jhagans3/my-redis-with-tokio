@@ -13,6 +13,12 @@ use tokio::net::{TcpListener, TcpStream};
 // is roughly an Arc<Vec<u8>> but with some added capabilities.
 type Db = Arc<Mutex<HashMap<String, Bytes>>>;
 
+#[derive(Debug)]
+enum Command {
+    Get { key: String },
+    Set { key: String, val: Bytes },
+}
+
 // cargo run --example mini-redis-server
 #[tokio::main]
 async fn main() {
