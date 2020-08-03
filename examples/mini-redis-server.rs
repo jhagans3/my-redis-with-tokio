@@ -3,6 +3,7 @@ use mini_redis::{Connection, Frame};
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 use tokio::net::{TcpListener, TcpStream};
+use tokio::sync::mpsc;
 
 // Instead of using Vec<u8> we use the bytes crate.
 // The biggest feature it adds over Vec<u8> is shallow cloning.
