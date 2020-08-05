@@ -2,7 +2,7 @@ use tokio::fs::File;
 use tokio::io::{self, AsyncReadExt};
 
 // ls ../data/foo.txt
-// cargo run --example async-read
+// my-redis-with-tokio/examples$ cargo run --example async-read
 #[tokio::main]
 async fn main() -> io::Result<()> {
     let mut f = File::open("../data/foo.txt").await?;
