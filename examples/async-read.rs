@@ -15,5 +15,15 @@ async fn main() -> io::Result<()> {
 
     println!("The bytes: {:?}", &buffer[..n]);
 
+    let mut f = File::open("../data/foo.txt").await?;
+    let mut buffer = Vec::new();
+
+    // read the whole file
+    let whole = f.read_to_end(&mut buffer).await?;
+    println!("{:?}", whole);
+
     Ok(())
 }
+// output
+// The bytes: [73, 47, 79, 32, 105, 110, 32, 84, 111, 107]
+// 916
