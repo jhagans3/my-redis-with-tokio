@@ -12,5 +12,11 @@ async fn main() -> io::Result<()> {
     let n = file.write(b"some bytes").await?;
 
     println!("Wrote the first {} bytes of 'some bytes'.", n);
+
+    let mut buffer = File::create("../data/foo-write2.txt").await?;
+
+    // writes the entire buffer into the writer.
+    buffer.write_all(b"some bytes").await?;
+
     Ok(())
 }
